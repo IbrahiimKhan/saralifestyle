@@ -1,11 +1,12 @@
 import {StyleSheet, Text, View} from 'react-native';
 import React from 'react';
+import {Button, PaperProvider} from 'react-native-paper';
 
 const App = () => {
   return (
-    <View>
-      <Text>App</Text>
-    </View>
+    <PaperProvider>
+      <Button>hellow world</Button>
+    </PaperProvider>
   );
 };
 
