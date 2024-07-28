@@ -9,7 +9,7 @@ export const Screen: FC<PropsWithChildren> = ({children}) => {
       <StatusBar
         translucent
         barStyle="dark-content"
-        backgroundColor={COLORS.background}
+        backgroundColor={COLORS.light}
       />
       <SafeAreaView style={styles.screen}>
         <View style={styles.safeView}>{children}</View>
@@ -27,6 +27,5 @@ const styles = StyleSheet.create({
   },
   safeView: {
     height: '100%',
-    paddingHorizontal: SPACING.space_24,
   },
 });

@@ -8,6 +8,7 @@ import {HomeScreen} from '../screens/HomeScreen';
 import ProfileScreen from '../screens/ProfileScreen';
 import {COLORS, SPACING} from '../theme/theme';
 import {Svg, Path, G, Defs, ClipPath, Rect} from 'react-native-svg';
+import {DealScreen} from '../screens';
 
 const Tab = createBottomTabNavigator();
 
@@ -72,15 +73,10 @@ export const TabNavigator = () => {
       />
       <Tab.Screen
         name="Deal"
-        component={ProfileScreen}
+        component={DealScreen}
         options={{
           tabBarIcon: ({focused}) => (
-            <Svg
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg">
+            <Svg width="24" height="24" viewBox="0 0 24 24" fill="none">
               <Path
                 fill-rule="evenodd"
                 clip-rule="evenodd"
