@@ -1,13 +1,8 @@
-import {StyleSheet, Text, View} from 'react-native';
 import React from 'react';
-import {Button, PaperProvider} from 'react-native-paper';
-
+import {StyleSheet} from 'react-native';
+import {StackNavigator} from './navigators/StackNavigator';
 const App = () => {
-  return (
-    <PaperProvider>
-      <Button>hellow world</Button>
-    </PaperProvider>
-  );
+  return <StackNavigator />;
 };
 
 export default App;
