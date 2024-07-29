@@ -5,12 +5,14 @@ import {Accordion, Icon, OutletCard, Screen, SearchBar} from '../components';
 import HStack from '../components/atom/HStack';
 import {COLORS, FONTSIZE, SPACING} from '../theme/theme';
 import {Outlet} from '../types';
+import Loader from '../components/atom/Loader';
 
 export const DealScreen = () => {
   const [search, setSearch] = useState<string>('');
   const [outlets, setOutlets] = useState<Outlet[]>([]);
   const [oldOutlets, setOldOutlets] = useState<Outlet[]>([]);
-  const [emptyText, setEmptyText] = useState('Loading....');
+  const [emptyText, setEmptyText] = useState<string>('');
+  const [loading, setLoading] = useState(true);
 
   const handleSearch = () => {
     if (search) {
@@ -27,53 +29,62 @@ export const DealScreen = () => {
   };
 
   const fetchOutlets = async () => {
-    try {
-      const outletsData = await getOutlets('Outlet/GetOutletAddress?getAll=Y');
-      console.log(outletsData);
-      setOutlets(outletsData);
-      setOldOutlets(outletsData);
-    } catch (error) {
-      console.log(error);
-      return;
-    }
+    getOutlets('Outlet/GetOutletAddress?getAll=Y')
+      .then(outletsData => {
+        setOutlets(outletsData);
+        setOldOutlets(outletsData);
+      })
+      .catch(_err => '')
+      .finally(() => setLoading(false));
   };
 
   useEffect(() => {
     fetchOutlets();
   }, []);
-
   useEffect(() => {
-    handleSearch();
+    if (!search) {
+      setOutlets(oldOutlets);
+    }
   }, [search]);
 
   return (
-    <Screen>
-      <View style={styles.header}>
-        <HStack gap="space_8">
-          <SearchBar value={search} onChange={setSearch} />
-          <Icon name="home" />
-          <Icon name="home" />
-        </HStack>
-      </View>
+    <>
+      {loading ? (
+        <Loader />
+      ) : (
+        <Screen>
+          <View style={styles.header}>
+            <HStack gap="space_8">
+              <SearchBar
+                value={search}
+                onChange={setSearch}
+                handleSearch={() => handleSearch()}
+              />
+              <Icon name="home" />
+              <Icon name="home" />
+            </HStack>
+          </View>
 
-      <View style={styles.safeArea}>
-        <FlatList
-          data={outlets}
-          showsHorizontalScrollIndicator={false}
-          showsVerticalScrollIndicator={false}
-          renderItem={item => (
-            <Accordion title={item.item.outletName}>
-              <OutletCard outlet={item.item} />
-            </Accordion>
-          )}
-          keyExtractor={item => item.outletId.toString()}
-          ListEmptyComponent={() => (
-            <Text style={styles.empty}>{emptyText}</Text>
-          )}
-          ItemSeparatorComponent={() => <View style={styles.separator} />}
-        />
-      </View>
-    </Screen>
+          <View style={styles.safeArea}>
+            <FlatList
+              data={outlets}
+              showsHorizontalScrollIndicator={false}
+              showsVerticalScrollIndicator={false}
+              renderItem={item => (
+                <Accordion title={item.item.outletName}>
+                  <OutletCard outlet={item.item} />
+                </Accordion>
+              )}
+              keyExtractor={item => item.outletId.toString()}
+              ListEmptyComponent={() => (
+                <Text style={styles.empty}>{emptyText}</Text>
+              )}
+              ItemSeparatorComponent={() => <View style={styles.separator} />}
+            />
+          </View>
+        </Screen>
+      )}
+    </>
   );
 };
 
@@ -93,8 +104,10 @@ const styles = StyleSheet.create({
     height: SPACING.space_10,
   },
   empty: {
-    color: COLORS.danger,
+    color: COLORS.warning,
     textAlign: 'center',
-    fontSize: FONTSIZE.size_28,
+    fontSize: FONTSIZE.size_18,
+    fontWeight: 'bold',
+    marginTop: SPACING.space_10,
   },
 });

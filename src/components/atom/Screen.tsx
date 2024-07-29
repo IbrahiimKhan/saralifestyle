@@ -23,7 +23,7 @@ export default Screen;
 const styles = StyleSheet.create({
   screen: {
     flex: 1,
-    backgroundColor: COLORS.gray,
+    backgroundColor: COLORS.background,
   },
   safeView: {
     height: '100%',

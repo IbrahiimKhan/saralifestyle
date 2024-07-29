@@ -1,19 +1,24 @@
 import React from 'react';
-import {StyleSheet, TextInput, View} from 'react-native';
+import {StyleSheet, TextInput, TouchableOpacity, View} from 'react-native';
 import {BORDERRADIUS, COLORS, SPACING} from '../../theme/theme';
 import Icon from './Icon';
 
 interface SearchBarProps {
   value: string;
   onChange: (text: string) => void;
+  handleSearch: () => void;
 }
 
-export const SearchBar: React.FC<SearchBarProps> = ({value, onChange}) => {
+export const SearchBar: React.FC<SearchBarProps> = ({
+  value,
+  onChange,
+  handleSearch,
+}) => {
   return (
     <View style={styles.container}>
-      <View style={styles.search} pointerEvents="none">
+      <TouchableOpacity onPress={handleSearch} style={styles.search}>
         <Icon name="search" color="light" />
-      </View>
+      </TouchableOpacity>
       <TextInput
         style={styles.field}
         placeholder="Search"

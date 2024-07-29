@@ -21,10 +21,10 @@ const DetailRow: FC<{label: string; value: string | ReactElement}> = ({
   label,
   value,
 }) => (
-  <HStack gap="space_10">
+  <View style={styles.infoWrapper}>
     <Text style={styles.label}>{label}</Text>
     <Text style={styles.text}>{value}</Text>
-  </HStack>
+  </View>
 );
 
 export const OutletCard: FC<OutletCardProps> = ({outlet}): ReactElement => {
@@ -51,7 +51,7 @@ export const OutletCard: FC<OutletCardProps> = ({outlet}): ReactElement => {
       <DetailRow label="Address:" value={address} />
       <DetailRow
         label="Business Hours:"
-        value={`${businessHours} ${businessHoursNote}`}
+        value={`${businessHours} (${businessHoursNote})`}
       />
       <HStack>
         <Text style={styles.label}>Contact Numbers:</Text>
@@ -112,6 +112,11 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     color: COLORS.primary,
+  },
+  infoWrapper: {
+    flexDirection: 'row',
+    marginVertical: SPACING.space_4,
+    gap: SPACING.space_10,
   },
 });
 

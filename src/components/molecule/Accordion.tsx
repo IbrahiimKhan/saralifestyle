@@ -35,6 +35,7 @@ export const Accordion: FC<AccordionProps> = ({title, children}) => {
       marginVertical: !isCollapsed ? SPACING.space_10 : null,
       borderRadius: SPACING.space_10,
       backgroundColor: COLORS.light,
+      elevation: 2,
     };
   }, [isCollapsed]);
 
