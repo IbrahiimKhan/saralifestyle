@@ -1,13 +1,12 @@
 import React, {useEffect, useState} from 'react';
 import {FlatList, StyleSheet, Text, View} from 'react-native';
-import {Path, Svg} from 'react-native-svg';
+import {Heart, LeftArrow, Notification} from '../../assets';
 import {getOutlets} from '../api/apiCall';
 import {Accordion, OutletCard, Screen, SearchBar} from '../components';
 import HStack from '../components/atom/HStack';
 import Loader from '../components/atom/Loader';
 import {COLORS, FONTSIZE, SPACING} from '../theme/theme';
 import {Outlet} from '../types';
-import {Heart, LeftArrow, Notification, Search} from '../../assets';
 
 export const DealScreen = () => {
   const [search, setSearch] = useState<string>('');

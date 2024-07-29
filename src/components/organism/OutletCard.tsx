@@ -54,7 +54,7 @@ export const OutletCard: FC<OutletCardProps> = ({outlet}): ReactElement => {
         label="Business Hours:"
         value={`${businessHours} (${businessHoursNote})`}
       />
-      <HStack>
+      <HStack gap="space_4">
         <Text style={styles.label}>Contact Numbers:</Text>
         {contacts.map((number, index) => (
           <Text key={index} style={styles.text}>

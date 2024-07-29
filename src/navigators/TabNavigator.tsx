@@ -2,18 +2,17 @@
 
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import React from 'react';
-import {StyleSheet} from 'react-native';
-import {Icon} from '../components';
+import {Dimensions, StyleSheet, View} from 'react-native';
+import {Account, Cart, Category, Deal, Home} from '../../assets';
+import {DealScreen} from '../screens';
 import {HomeScreen} from '../screens/HomeScreen';
 import ProfileScreen from '../screens/ProfileScreen';
-import {COLORS, SPACING} from '../theme/theme';
-import {Svg, Path, G, Defs, ClipPath, Rect} from 'react-native-svg';
-import {DealScreen} from '../screens';
-import {Account, Cart, Category, Deal, Home} from '../../assets';
+import {BORDERRADIUS, COLORS, SPACING} from '../theme/theme';
 
 const Tab = createBottomTabNavigator();
 
 export const TabNavigator = () => {
+  const iconSize = SPACING.space_28;
   return (
     <Tab.Navigator
       initialRouteName="Best Deal"
@@ -27,7 +26,13 @@ export const TabNavigator = () => {
         component={HomeScreen}
         options={{
           tabBarIcon: ({focused}) => (
-            <Home fill={focused ? COLORS.primary : COLORS.gray} />
+            <View style={focused && styles.iconWrapper}>
+              <Home
+                width={iconSize}
+                height={iconSize}
+                fill={focused ? COLORS.primary : COLORS.gray}
+              />
+            </View>
           ),
         }}
       />
@@ -36,7 +41,13 @@ export const TabNavigator = () => {
         component={HomeScreen}
         options={{
           tabBarIcon: ({focused}) => (
-            <Category fill={focused ? COLORS.primary : COLORS.gray} />
+            <View style={focused && styles.iconWrapper}>
+              <Category
+                width={iconSize}
+                height={iconSize}
+                fill={focused ? COLORS.primary : COLORS.gray}
+              />
+            </View>
           ),
         }}
       />
@@ -45,7 +56,13 @@ export const TabNavigator = () => {
         component={DealScreen}
         options={{
           tabBarIcon: ({focused}) => (
-            <Deal fill={focused ? COLORS.primary : COLORS.gray} />
+            <View style={focused && styles.iconWrapper}>
+              <Deal
+                width={iconSize}
+                height={iconSize}
+                fill={focused ? COLORS.primary : COLORS.gray}
+              />
+            </View>
           ),
         }}
       />
@@ -54,7 +71,13 @@ export const TabNavigator = () => {
         component={ProfileScreen}
         options={{
           tabBarIcon: ({focused}) => (
-            <Cart fill={focused ? COLORS.primary : COLORS.gray} />
+            <View style={focused && styles.iconWrapper}>
+              <Cart
+                width={iconSize}
+                height={iconSize}
+                fill={focused ? COLORS.primary : COLORS.gray}
+              />
+            </View>
           ),
         }}
       />
@@ -63,7 +86,13 @@ export const TabNavigator = () => {
         component={ProfileScreen}
         options={{
           tabBarIcon: ({focused}) => (
-            <Account fill={focused ? COLORS.primary : COLORS.gray} />
+            <View style={focused && styles.iconWrapper}>
+              <Account
+                width={iconSize}
+                height={iconSize}
+                fill={focused ? COLORS.primary : COLORS.gray}
+              />
+            </View>
           ),
         }}
       />
@@ -73,9 +102,20 @@ export const TabNavigator = () => {
 
 const styles = StyleSheet.create({
   tabBarStyle: {
-    height: SPACING.space_36 * 1.5,
+    height: SPACING.space_36 * 1.8,
     backgroundColor: 'white',
     paddingBottom: SPACING.space_8,
+  },
+  iconWrapper: {
+    backgroundColor: COLORS.light,
+    width: '75%',
+    height: Dimensions.get('window').width / 6.5,
+    borderWidth: SPACING.space_4,
+    borderColor: COLORS.primary,
+    borderRadius: BORDERRADIUS.radius_25 * 4,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: -SPACING.space_30 * 1.5,
   },
 });
 

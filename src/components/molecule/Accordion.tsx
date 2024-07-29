@@ -68,13 +68,14 @@ const styles = StyleSheet.create({
   header: {
     borderWidth: 2,
     borderColor: COLORS.gray,
-    paddingVertical: SPACING.space_10,
-    borderRadius: SPACING.space_10,
+    paddingVertical: SPACING.space_4 + SPACING.space_2,
+    borderRadius: SPACING.space_4,
     paddingHorizontal: SPACING.space_10,
   },
   headerText: {
-    fontSize: FONTSIZE.size_16,
+    fontSize: FONTSIZE.size_14,
     textAlign: 'center',
-    fontWeight: 'bold',
+    fontWeight: 600,
+    letterSpacing: 1,
   },
 });

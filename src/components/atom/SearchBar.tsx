@@ -1,9 +1,7 @@
 import React from 'react';
 import {StyleSheet, TextInput, TouchableOpacity, View} from 'react-native';
-import {BORDERRADIUS, COLORS, SPACING} from '../../theme/theme';
-import Icon from './Icon';
-import {Line, Path, Svg} from 'react-native-svg';
 import {Search} from '../../../assets';
+import {BORDERRADIUS, COLORS, SPACING} from '../../theme/theme';
 
 interface SearchBarProps {
   value: string;
@@ -35,12 +33,12 @@ export const SearchBar: React.FC<SearchBarProps> = ({
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    height: SPACING.space_24 * 2,
+    height: SPACING.space_24 * 1.5,
   },
   search: {
     position: 'absolute',
-    right: SPACING.space_10,
-    top: SPACING.space_10 - SPACING.space_2,
+    right: SPACING.space_2,
+    top: 1.7,
     zIndex: 1,
     backgroundColor: COLORS.primary,
     paddingHorizontal: SPACING.space_8,
@@ -48,11 +46,10 @@ const styles = StyleSheet.create({
     borderRadius: BORDERRADIUS.radius_4,
   },
   field: {
-    height: SPACING.space_24 * 2,
     backgroundColor: COLORS.light,
-    borderRadius: BORDERRADIUS.radius_8,
+    borderRadius: BORDERRADIUS.radius_4,
     borderColor: COLORS.primary,
-    borderWidth: 2,
+    borderWidth: 1,
     flex: 1,
     color: COLORS.dark,
   },
