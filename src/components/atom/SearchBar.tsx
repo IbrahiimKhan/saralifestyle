@@ -2,6 +2,8 @@ import React from 'react';
 import {StyleSheet, TextInput, TouchableOpacity, View} from 'react-native';
 import {BORDERRADIUS, COLORS, SPACING} from '../../theme/theme';
 import Icon from './Icon';
+import {Line, Path, Svg} from 'react-native-svg';
+import {Search} from '../../../assets';
 
 interface SearchBarProps {
   value: string;
@@ -17,7 +19,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({
   return (
     <View style={styles.container}>
       <TouchableOpacity onPress={handleSearch} style={styles.search}>
-        <Icon name="search" color="light" />
+        <Search fill={COLORS.light} />
       </TouchableOpacity>
       <TextInput
         style={styles.field}

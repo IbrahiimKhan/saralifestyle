@@ -11,6 +11,7 @@ import Animated, {
 import {BORDERRADIUS, COLORS, FONTSIZE, SPACING} from '../../theme/theme';
 import Svg, {Path} from 'react-native-svg';
 import HStack from '../atom/HStack';
+import {DownArrow, UpArrow} from '../../../assets';
 
 type AccordionProps = {
   title: string;
@@ -55,15 +56,7 @@ export const Accordion: FC<AccordionProps> = ({title, children}) => {
             ]}>
             {title}
           </Text>
-          <Svg width="20" height="12" viewBox="0 0 14 8" fill="none">
-            <Path
-              d="M1 1L7 7L13 1"
-              stroke={isCollapsed ? COLORS.gray : COLORS.light}
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-          </Svg>
+          {isCollapsed ? <DownArrow /> : <UpArrow />}
         </HStack>
       </TouchableOpacity>
       <Animated.View style={animatedStyle}>{children}</Animated.View>

@@ -12,6 +12,7 @@ import Svg, {Path} from 'react-native-svg';
 import {Outlet} from '../../types';
 import {BORDERRADIUS, COLORS, FONTSIZE, SPACING} from '../../theme/theme';
 import HStack from '../atom/HStack';
+import {RightArrow} from '../../../assets';
 
 type OutletCardProps = {
   outlet: Outlet;
@@ -62,14 +63,9 @@ export const OutletCard: FC<OutletCardProps> = ({outlet}): ReactElement => {
         ))}
       </HStack>
       <TouchableOpacity style={styles.button}>
-        <HStack>
+        <HStack gap="space_10">
           <Text style={styles.buttonText}>Get Direction</Text>
-          <Svg width="15" height="9" viewBox="0 0 15 9" fill="none">
-            <Path
-              d="M0 4.36671C0 4.53246 0.06585 4.69146 0.183056 4.80864C0.300269 4.92583 0.459238 4.99171 0.625 4.99171H12.8663L10.1838 7.67421C10.0699 7.79208 10.0069 7.94996 10.0083 8.11383C10.0098 8.27771 10.0755 8.43446 10.1914 8.55033C10.3073 8.66621 10.464 8.73196 10.6279 8.73339C10.7917 8.73477 10.9496 8.67177 11.0675 8.55796L14.8175 4.80796C14.8753 4.75046 14.9213 4.68208 14.9526 4.60677C14.9839 4.53152 15 4.45077 15 4.36921V4.36671C15 4.28546 14.9838 4.20421 14.9513 4.12796C14.9201 4.05214 14.8742 3.98333 14.8162 3.92546L11.0662 0.175443C10.9484 0.0615988 10.7905 -0.00140134 10.6266 2.36578e-05C10.4627 0.00144866 10.306 0.0671796 10.1901 0.183055C10.0742 0.298936 10.0085 0.455699 10.0071 0.619568C10.0056 0.783443 10.0686 0.941317 10.1825 1.05919L12.8663 3.74171H0.625C0.459238 3.74171 0.300269 3.80752 0.183056 3.92477C0.06585 4.04196 0 4.20096 0 4.36671Z"
-              fill="#1F5DA0"
-            />
-          </Svg>
+          <RightArrow style={styles.rightArrow} />
         </HStack>
       </TouchableOpacity>
     </View>
@@ -117,6 +113,9 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     marginVertical: SPACING.space_4,
     gap: SPACING.space_10,
+  },
+  rightArrow: {
+    marginTop: SPACING.space_2,
   },
 });
 
