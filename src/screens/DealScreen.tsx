@@ -1,21 +1,39 @@
 import React, {useEffect, useState} from 'react';
+import {FlatList, StyleSheet, Text, View} from 'react-native';
+import {getOutlets} from '../api/apiCall';
 import {Accordion, Icon, OutletCard, Screen, SearchBar} from '../components';
 import HStack from '../components/atom/HStack';
-import {FlatList, StyleSheet, Text, View} from 'react-native';
-import {COLORS, SPACING} from '../theme/theme';
-import {getOutlets} from '../api/apiCall';
+import {COLORS, FONTSIZE, SPACING} from '../theme/theme';
 import {Outlet} from '../types';
-import axios from 'axios';
 
 export const DealScreen = () => {
   const [search, setSearch] = useState<string>('');
   const [outlets, setOutlets] = useState<Outlet[]>([]);
+  const [oldOutlets, setOldOutlets] = useState<Outlet[]>([]);
+  const [emptyText, setEmptyText] = useState('Loading....');
+
+  const handleSearch = () => {
+    if (search) {
+      const filtered = outlets.filter((outlet: Outlet) =>
+        outlet.address.toLowerCase().includes(search.toLowerCase()),
+      );
+      if (filtered.length === 0) {
+        setEmptyText('No Data Found');
+      }
+      setOutlets(filtered);
+    } else {
+      setOutlets(oldOutlets);
+    }
+  };
 
   const fetchOutlets = async () => {
     try {
       const outletsData = await getOutlets('Outlet/GetOutletAddress?getAll=Y');
+      console.log(outletsData);
       setOutlets(outletsData);
+      setOldOutlets(outletsData);
     } catch (error) {
+      console.log(error);
       return;
     }
   };
@@ -23,6 +41,10 @@ export const DealScreen = () => {
   useEffect(() => {
     fetchOutlets();
   }, []);
+
+  useEffect(() => {
+    handleSearch();
+  }, [search]);
 
   return (
     <Screen>
@@ -45,6 +67,9 @@ export const DealScreen = () => {
             </Accordion>
           )}
           keyExtractor={item => item.outletId.toString()}
+          ListEmptyComponent={() => (
+            <Text style={styles.empty}>{emptyText}</Text>
+          )}
           ItemSeparatorComponent={() => <View style={styles.separator} />}
         />
       </View>
@@ -66,5 +91,10 @@ const styles = StyleSheet.create({
   },
   separator: {
     height: SPACING.space_10,
+  },
+  empty: {
+    color: COLORS.danger,
+    textAlign: 'center',
+    fontSize: FONTSIZE.size_28,
   },
 });

@@ -47,6 +47,6 @@ const styles = StyleSheet.create({
     borderColor: COLORS.primary,
     borderWidth: 2,
     flex: 1,
-    color: COLORS.gray,
+    color: COLORS.dark,
   },
 });
