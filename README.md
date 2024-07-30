@@ -1,44 +1,54 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# Sara
 
-# Getting Started
+Project name is `Sara Lifestyle` which `an Ecommerce Application`.
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+## Prerequisites
 
-## Step 1: Start the Metro Server
+Before you begin, ensure you have met the following requirements:
+
+<!--- These are just example requirements. Add, duplicate or remove as required --->
+
+- You have installed the latest version of `nodejs`
+- You have a `<Windows/Linux/Mac>` machine.
+- > **Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+
+## Getting Started
+
+#### Step 1: Start the Metro Server
 
 First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
 
-To start Metro, run the following command from the _root_ of your React Native project:
+To install the dependencies & start Metro, run the following command from the _root_ of your Sara project dir:
 
 ```bash
-# using npm
-npm start
+yarn
+```
 
-# OR using Yarn
+```bash
 yarn start
 ```
 
-## Step 2: Start your Application
+#### Step 2: Start your Application
 
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
+Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your Sara project dir. Run the following command to start your _Android_ or _iOS_ app:
 
-### For Android
+#### For Android
 
 ```bash
-# using npm
-npm run android
-
-# OR using Yarn
 yarn android
 ```
 
-### For iOS
+#### For iOS
+
+Navigate to iOS directory
 
 ```bash
-# using npm
-npm run ios
+pod install
+```
 
-# OR using Yarn
+From root:
+
+```
 yarn ios
 ```
 
@@ -46,34 +56,20 @@ If everything is set up _correctly_, you should see your new app running in your
 
 This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
 
-## Step 3: Modifying your App
+## Contributing Sara
 
-Now that you have successfully run the app, let's modify it.
+<!--- If your README is long or you have some specific process or steps you want contributors to follow, consider creating a separate CONTRIBUTING.md file--->
 
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
+To contribute to Sara, follow these steps:
 
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
+1. Clone this repository.
+2. Create a branch: `git checkout -b <branch_name>`.
+3. Make your changes and commit them: `git commit -m '<commit_message>'`
+4. Push to the branch: `git push`
+5. Create the pull request.
 
-## Congratulations! :tada:
+## Contributors
 
-You've successfully run and modified your React Native App. :partying_face:
+Thanks to the following people who have contributed to Sara project:
 
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+- [@IbrahiimKhan](https://github.com/IbrahiimKhan) 📖
