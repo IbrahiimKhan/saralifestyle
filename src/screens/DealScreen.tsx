@@ -17,11 +17,9 @@ export const DealScreen = () => {
 
   const handleSearch = () => {
     if (search) {
-      console.log('what is search', search);
       const filtered = oldOutlets.filter((outlet: Outlet) =>
         outlet.address.toLowerCase().includes(search.toLowerCase()),
       );
-      console.log(filtered, 'what is filterd');
       if (filtered.length === 0) {
         setEmptyText('No Data Found');
       }
@@ -50,7 +48,6 @@ export const DealScreen = () => {
     }
   }, [oldOutlets, search]);
 
-  console.log('what is search outer', search);
   return (
     <>
       <Screen>
