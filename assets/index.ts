@@ -4,6 +4,7 @@ import Category from './svg/category.svg';
 import Deal from './svg/deal.svg';
 import Cart from './svg/cart.svg';
 import Account from './svg/account.svg';
+
 import Heart from './svg/heart.svg';
 import DownArrow from './svg/downArrow.svg';
 import UpArrow from './svg/upArrow.svg';

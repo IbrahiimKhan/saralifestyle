@@ -1,5 +1,3 @@
-// CollapsibleComponent.js
-
 import React, {FC, PropsWithChildren, useState} from 'react';
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import Animated, {
@@ -8,10 +6,9 @@ import Animated, {
   useSharedValue,
   withTiming,
 } from 'react-native-reanimated';
-import {BORDERRADIUS, COLORS, FONTSIZE, SPACING} from '../../theme/theme';
-import Svg, {Path} from 'react-native-svg';
-import HStack from '../atom/HStack';
 import {DownArrow, UpArrow} from '../../../assets';
+import {COLORS, FONTSIZE, SPACING} from '../../theme/theme';
+import HStack from '../atom/HStack';
 
 type AccordionProps = {
   title: string;

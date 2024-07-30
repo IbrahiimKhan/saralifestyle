@@ -1,7 +1,7 @@
 import React, {FC, PropsWithChildren} from 'react';
 import {StatusBar, StyleSheet, View} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
-import {COLORS, SPACING} from '../../theme/theme';
+import {COLORS} from '../../theme/theme';
 
 export const Screen: FC<PropsWithChildren> = ({children}) => {
   return (

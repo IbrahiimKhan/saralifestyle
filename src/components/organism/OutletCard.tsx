@@ -1,18 +1,18 @@
 import React, {FC, ReactElement} from 'react';
 import {
   Dimensions,
+  Linking,
   StyleSheet,
   Text,
   TouchableOpacity,
   View,
 } from 'react-native';
 import FastImage from 'react-native-fast-image';
-import Svg, {Path} from 'react-native-svg';
 
-import {Outlet} from '../../types';
-import {BORDERRADIUS, COLORS, FONTSIZE, SPACING} from '../../theme/theme';
-import HStack from '../atom/HStack';
 import {RightArrow} from '../../../assets';
+import {BORDERRADIUS, COLORS, FONTSIZE, SPACING} from '../../theme/theme';
+import {Outlet} from '../../types';
+import HStack from '../atom/HStack';
 
 type OutletCardProps = {
   outlet: Outlet;
@@ -62,7 +62,9 @@ export const OutletCard: FC<OutletCardProps> = ({outlet}): ReactElement => {
           </Text>
         ))}
       </HStack>
-      <TouchableOpacity style={styles.button}>
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => Linking.openURL(outlet.outletDirection)}>
         <HStack gap="space_10">
           <Text style={styles.buttonText}>Get Direction</Text>
           <RightArrow style={styles.rightArrow} />
