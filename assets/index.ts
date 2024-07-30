@@ -12,6 +12,7 @@ import Notification from './svg/notification.svg';
 import LeftArrow from './svg/leftArrow.svg';
 import Search from './svg/search.svg';
 import RightArrow from './svg/rightArrow.svg';
+import Arrow from './svg/Arrow.svg';
 
 export {
   Home,
@@ -26,4 +27,5 @@ export {
   UpArrow,
   LeftArrow,
   RightArrow,
+  Arrow,
 };
