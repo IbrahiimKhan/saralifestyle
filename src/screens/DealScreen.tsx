@@ -100,6 +100,7 @@ const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
     marginHorizontal: SPACING.space_24,
+    marginBottom: SPACING.space_10,
   },
   separator: {
     height: SPACING.space_10,

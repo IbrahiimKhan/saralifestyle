@@ -48,7 +48,7 @@ interface Color {
 export const COLORS: Color = {
   primary: '#1F5DA0',
   light: '#FFF',
-  background: '#f9f9f9',
+  background: '#f3f3f3',
   dark: '#282628',
   gray: '#ABABAB',
   lightGray: '#7F7F7F',
