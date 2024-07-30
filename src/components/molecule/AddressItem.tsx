@@ -21,7 +21,7 @@ export const AddressItem: FC<AddressItemProps> = ({
     <TouchableOpacity onPress={onPress} style={styles.button}>
       <HStack>
         <Arrow />
-        <Text>{address}</Text>
+        <Text style={styles.address}>{address}</Text>
       </HStack>
     </TouchableOpacity>
   );
@@ -37,4 +37,5 @@ const styles = StyleSheet.create({
     marginHorizontal: SPACING.space_24,
     marginBottom: SPACING.space_10,
   },
+  address: {color: COLORS.lightGray},
 });
