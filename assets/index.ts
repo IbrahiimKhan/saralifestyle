@@ -12,7 +12,7 @@ import Notification from './svg/notification.svg';
 import LeftArrow from './svg/leftArrow.svg';
 import Search from './svg/search.svg';
 import RightArrow from './svg/rightArrow.svg';
-import Arrow from './svg/Arrow.svg';
+import Arrow from './svg/arrow.svg';
 
 export {
   Home,
