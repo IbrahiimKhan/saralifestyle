@@ -22,9 +22,16 @@ const DetailRow: FC<{label: string; value: string | ReactElement}> = ({
   label,
   value,
 }) => (
-  <View style={styles.infoWrapper}>
+  <View
+    style={[
+      styles.infoWrapper,
+      {flexDirection: label.includes('Address:') ? 'row' : 'column'},
+    ]}>
     <Text style={styles.label}>{label}</Text>
-    <Text style={styles.text}>{value}</Text>
+    <Text
+      style={[styles.text, {flex: label.includes('Address:') ? 1 : undefined}]}>
+      {value}
+    </Text>
   </View>
 );
 
@@ -54,14 +61,16 @@ export const OutletCard: FC<OutletCardProps> = ({outlet}): ReactElement => {
         label="Business Hours:"
         value={`${businessHours} (${businessHoursNote})`}
       />
-      <HStack gap="space_4">
+      <View>
         <Text style={styles.label}>Contact Numbers:</Text>
-        {contacts.map((number, index) => (
-          <Text key={index} style={styles.text}>
-            {number.contact}
-          </Text>
-        ))}
-      </HStack>
+        <HStack>
+          {contacts.map((number, index) => (
+            <Text key={index} style={styles.text}>
+              {number.contact},
+            </Text>
+          ))}
+        </HStack>
+      </View>
       <TouchableOpacity
         style={styles.button}
         onPress={() => Linking.openURL(outlet.outletDirection)}>
@@ -94,7 +103,7 @@ const styles = StyleSheet.create({
   },
   text: {
     color: COLORS.dark,
-    flex: 1,
+    marginLeft: SPACING.space_10,
   },
   button: {
     borderColor: COLORS.primary,
@@ -112,9 +121,7 @@ const styles = StyleSheet.create({
     color: COLORS.primary,
   },
   infoWrapper: {
-    flexDirection: 'row',
     marginVertical: SPACING.space_4,
-    gap: SPACING.space_10,
   },
   rightArrow: {
     marginTop: SPACING.space_2,
