@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
   search: {
     position: 'absolute',
     right: SPACING.space_2,
-    top: 1.7,
+    top: 2,
     zIndex: 1,
     backgroundColor: COLORS.primary,
     paddingHorizontal: SPACING.space_8,
