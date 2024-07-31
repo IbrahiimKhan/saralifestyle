@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unstable-nested-components */
 import React, {useEffect, useState} from 'react';
 import {FlatList, Linking, StyleSheet, Text, View} from 'react-native';
 import {Heart, LeftArrow, Notification} from '../../assets';
@@ -118,7 +119,7 @@ const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
     marginHorizontal: SPACING.space_24,
-    marginBottom: SPACING.space_10,
+    marginBottom: SPACING.space_15,
   },
   separator: {
     height: SPACING.space_10,
